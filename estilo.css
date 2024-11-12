@@ -1,0 +1,248 @@
+/* Universidad de El Salvador
+Nombre: Camilo Samuel Medrano Martínez
+Carnet: MM22108 */
+
+:root {
+    --color-primario: #5E81AC; /* Frost */
+    --color-secundario: #2E3440; /* Polar Night */
+    --color-texto: #D8DEE9; /* Snow Storm */
+    --color-fondo: #3B4252; /* Polar Night */
+    --color-hover: #81A1C1; /* Frost */
+    --color-error: #BF616A; /* Aurora - Red */
+    --color-boton: #A3BE8C; /* Aurora - Green */
+    --color-boton-hover: #88C0D0; /* Frost */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 20px;
+}
+
+/* Encabezado */
+header {
+    background-color: var(--color-primario);
+    color: #ECEFF4; /* Snow Storm */
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1rem;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Botones */
+button, .btn-obtener, .btn-agregar, .btn-eliminar {
+    padding: 10px 20px;
+    background-color: var(--color-boton);
+    color: #2E3440; /* Polar Night - dark text */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .btn-obtener:hover, .btn-agregar:hover {
+    background-color: var(--color-boton-hover);
+}
+
+.btn-eliminar {
+    background-color: #BF616A; /* Aurora - Red */
+}
+
+.btn-eliminar:hover {
+    background-color: #D08770; /* Aurora - Orange */
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.agregar-producto {
+    background-color: var(--color-fondo);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.agregar-producto h2 {
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #4C566A; /* Polar Night - darker border */
+    border-radius: 4px;
+    background-color: #3B4252; /* Polar Night */
+    color: var(--color-texto);
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+.error {
+    color: var(--color-error);
+    margin-top: 10px;
+}
+
+/* Filtros */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.filtros h2 {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+}
+
+.filtros label {
+    background-color: var(--color-fondo);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filtros label:hover {
+    background-color: var(--color-primario);
+    color: #ECEFF4; /* Snow Storm */
+}
+
+.instrucciones {
+    margin-bottom: 20px;
+    list-style: decimal inside;
+    color: #88C0D0; /* Frost */
+}
+
+/* Tabla de productos */
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: #3B4252; /* Polar Night */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #4C566A; /* Polar Night */
+    color: var(--color-texto);
+}
+
+th {
+    background-color: #5E81AC; /* Frost */
+    color: #ECEFF4; /* Snow Storm */
+}
+
+th#price {
+    cursor: pointer;
+}
+
+/* Mostrar/Ocultar productos según filtro */
+input#c1:checked ~ table tbody tr.c1 { display: table-row; }
+input#c1:not(:checked) ~ table tbody tr.c1 { display: none; }
+input#c2:checked ~ table tbody tr.c2 { display: table-row; }
+input#c2:not(:checked) ~ table tbody tr.c2 { display: none; }
+input#c3:checked ~ table tbody tr.c3 { display: table-row; }
+input#c3:not(:checked) ~ table tbody tr.c3 { display: none; }
+input#c4:checked ~ table tbody tr.c4 { display: table-row; }
+input#c4:not(:checked) ~ table tbody tr.c4 { display: none; }
+
+tr:nth-child(even) {
+    background-color: #434C5E; /* Polar Night */
+}
+
+tr:hover {
+    background-color: #4C566A; /* Polar Night */
+}
+
+img {
+    width: 3cm;
+    height: 3cm;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: var(--color-primario);
+    color: #ECEFF4; /* Snow Storm */
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .filtros {
+        flex-direction: column;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .agregar-producto {
+        padding: 15px;
+    }
+
+    .btn-obtener, .btn-agregar, .btn-eliminar {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Estilos para categorías */
+tr.c1 { background-color: #EBCB8B; } /* Aurora - Yellow */
+tr.c2 { background-color: #BF616A; } /* Aurora - Red */
+tr.c3 { background-color: #A3BE8C; } /* Aurora - Green */
+tr.c4 { background-color: #B48EAD; } /* Aurora - Purple */
